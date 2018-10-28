@@ -1,15 +1,19 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: wikix
+  name: test-service
 spec:
   selector:
-    app: wikix
+    # Selector to Identify pods to loadbalance
+    app: golangtest
   type: LoadBalancer
   ports:
   - protocol: TCP
-    #nodePort: 32131
-    port: 80
+    # I have no Idea what this is for
+    nodePort: 32131
+    # Port that is accessible outside
+    port: 3030
+    # Port that are exposed inside pods/containers
     targetPort: 3000
 
 ---
@@ -17,18 +21,18 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
-    app: wikix
-  name: wikix
+    app: test-deployment
+  name: test-deployment
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: wikix
+        app: golangtest
     spec:
       containers:
       - name: main
-        image: kenkoii/wikixmain
+        image: kenkoii/golangtest
         ports:
         - containerPort: 3000
         livenessProbe:
