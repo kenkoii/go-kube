@@ -1,0 +1,61 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: wikix
+spec:
+  selector:
+    app: wikix
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    #nodePort: 32131
+    port: 80
+    targetPort: 3000
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: wikix
+  name: wikix
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wikix
+    spec:
+      containers:
+      - name: main
+        image: kenkoii/wikixmain
+        ports:
+        - containerPort: 3000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+
+# ---
+# apiVersion: extensions/v1beta1
+# kind: Deployment
+# metadata:
+#   labels:
+#     app: wikixmysql
+#   name: wikixmysql
+# spec:
+#   replicas: 1
+#   template:
+#     metadata:
+#       labels:
+#         app: wikixmysql
+#     spec:
+#       containers:
+#       - name: mysql
+#         image: mysql:5.6
+#         ports:
+#         - containerPort: 3306
+#         livenessProbe:
+#           httpGet:
+#             path: /
+#             port: 3306
