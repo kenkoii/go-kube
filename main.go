@@ -1,14 +1,17 @@
 package main
 
 import (
-	"log"
 	"net/http"
+
+	"github.com/labstack/echo"
 )
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello World"))
+	e := echo.New()
+
+	e.GET("/", func(c echo.Context) error {
+		return c.String(http.StatusOK, "Hello World")
 	})
 
-	log.Fatal(http.ListenAndServe(":1234", nil))
+	e.Logger.Fatal(e.Start(":3000"))
 }
