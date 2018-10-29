@@ -24,7 +24,7 @@ metadata:
     app: test-deployment
   name: test-deployment
 spec:
-  replicas: 1
+  replicas: 4
   template:
     metadata:
       labels:
@@ -39,27 +39,3 @@ spec:
           httpGet:
             path: /
             port: 3000
-
-# ---
-# apiVersion: extensions/v1beta1
-# kind: Deployment
-# metadata:
-#   labels:
-#     app: wikixmysql
-#   name: wikixmysql
-# spec:
-#   replicas: 1
-#   template:
-#     metadata:
-#       labels:
-#         app: wikixmysql
-#     spec:
-#       containers:
-#       - name: mysql
-#         image: mysql:5.6
-#         ports:
-#         - containerPort: 3306
-#         livenessProbe:
-#           httpGet:
-#             path: /
-#             port: 3306
