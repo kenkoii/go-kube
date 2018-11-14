@@ -1,22 +1,3 @@
-kind: Service
-apiVersion: v1
-metadata:
-  name: test-service
-spec:
-  selector:
-    # Selector to Identify pods to loadbalance
-    app: golangtest
-  type: LoadBalancer
-  ports:
-  - protocol: TCP
-    # I have no Idea what this is for
-    nodePort: 32131
-    # Port that is accessible outside
-    port: 3030
-    # Port that are exposed inside pods/containers
-    targetPort: 3000
-
----
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
