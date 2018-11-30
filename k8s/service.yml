@@ -6,7 +6,7 @@ spec:
   ports:
   - protocol: TCP
     # Port that is accessible outside
-    port: 80
+    port: 8080
     # Port that are exposed inside pods/containers
     targetPort: 3000
   selector:

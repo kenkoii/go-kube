@@ -12,7 +12,7 @@ func main() {
 
 	e.Use(mw.Logger())
 	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello World")
+		return c.String(http.StatusOK, "Hello Kaz and Joe!")
 	})
 
 	e.Logger.Fatal(e.Start(":3000"))
