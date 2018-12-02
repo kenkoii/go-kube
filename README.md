@@ -1,6 +1,14 @@
 # Kuber-what?
 This project will give you an idea about what Kubernetes is, where and when it is needed, and how it can help you and your organization.
 
+# Setup
+
+## Requirements
+
+1. [Docker](https://www.docker.com/products/docker-desktop)
+1. [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+1. [Go](https://golang.org/dl/) (or any programming language you prefer.)
+
 # Table of Contents
 1. [Kubernetes Overview](https://github.com/kenkoii/go-kube/wiki/Kubernetes-Overview)
 1. [Anatomy of a Kubernetes Cluster](https://github.com/kenkoii/go-kube/wiki/Anatomy-of-a-Kubernetes-Cluster)
