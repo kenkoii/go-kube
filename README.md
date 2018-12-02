@@ -1,4 +1,4 @@
-# Kuber-what?
+# Go-Kube Practice Project
 This project will give you an idea about what Kubernetes is, where and when it is needed, and how it can help you and your organization.
 
 # Setup
