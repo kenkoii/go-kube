@@ -1,5 +1,13 @@
-# Kuber-what?
+# Go-Kube Practice Project
 This project will give you an idea about what Kubernetes is, where and when it is needed, and how it can help you and your organization.
+
+# Setup
+
+## Requirements
+
+1. [Docker](https://www.docker.com/products/docker-desktop)
+1. [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+1. [Go](https://golang.org/dl/) (or any programming language you prefer.)
 
 # Table of Contents
 1. [Kubernetes Overview](https://github.com/kenkoii/go-kube/wiki/Kubernetes-Overview)
