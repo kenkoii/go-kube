@@ -13,6 +13,6 @@ spec:
     spec:
       containers:
       - name: main
-        image: gcr.io/wikix-staging/go-kube
+        image: kenkoii/go-kube
         ports:
         - containerPort: 3000
