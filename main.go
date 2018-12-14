@@ -1,19 +1,22 @@
 package main
 
 import (
+	"fmt"
+	"log"
 	"net/http"
-
-	"github.com/labstack/echo"
-	mw "github.com/labstack/echo/middleware"
 )
 
+func handler(w http.ResponseWriter, r *http.Request) {
+	msg := "JP Team"
+	if param := r.URL.Query().Get("name"); param != "" {
+		msg = param
+	}
+	fmt.Fprintf(w, "Hi there, I love %s!", msg)
+}
+
 func main() {
-	e := echo.New()
-
-	e.Use(mw.Logger())
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello Kaz and Joe!")
-	})
-
-	e.Logger.Fatal(e.Start(":3000"))
+	port := ":3000"
+	http.HandleFunc("/", handler)
+	log.Fatal(http.ListenAndServe(port, nil))
+	log.Printf("Running on port %s", port)
 }
