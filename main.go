@@ -7,7 +7,7 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	msg := "JP Team"
+	msg := "JP Team and PH Team"
 	if param := r.URL.Query().Get("name"); param != "" {
 		msg = param
 	}
