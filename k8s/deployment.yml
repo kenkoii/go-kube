@@ -5,7 +5,7 @@ metadata:
     app: go-kube-deployment
   name: go-kube-deployment
 spec:
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
